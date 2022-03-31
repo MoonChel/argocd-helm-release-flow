@@ -10,7 +10,9 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: master
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: dockerconfigjson-github-com
+
 nameOverride: ""
 fullnameOverride: ""
 
