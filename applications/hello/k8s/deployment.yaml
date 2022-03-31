@@ -13,8 +13,12 @@ spec:
       labels:
         app: hello
     spec:
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
+
       containers:
         - image: ghcr.io/moonchel/argocd-helm-release-flow:master
           name: hello
           ports:
             - containerPort: 80
+          imagePullPolicy: Always

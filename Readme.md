@@ -13,3 +13,12 @@ In other terminal
 
 Apply our first app
 - kubectl apply -n argocd -f applications-2/guestbook.yaml
+
+Create workflow for build and push to ghcr
+- https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
+
+Create a PAT for k8s to pull image
+- https://cloud.redhat.com/blog/how-to-use-argocd-deployments-with-github-tokens
+
+Create a secret for k8s to pull image from ghcr
+- https://dev.to/asizikov/using-github-container-registry-with-kubernetes-38fb

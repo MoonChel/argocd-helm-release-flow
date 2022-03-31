@@ -1,1 +1,1 @@
-FROM busybox:stable-musl
+FROM okteto/sample-app
