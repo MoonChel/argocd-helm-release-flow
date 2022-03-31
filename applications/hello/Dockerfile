@@ -1,0 +1,1 @@
+FROM busybox:busybox:stable-musl
