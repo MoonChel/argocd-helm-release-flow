@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: world
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: world=ghcr.io/moonchel/argocd-helm-release-flow:master
+    argocd-image-updater.argoproj.io/box.update-strategy: digest
+
 spec:
   project: default
   source:
