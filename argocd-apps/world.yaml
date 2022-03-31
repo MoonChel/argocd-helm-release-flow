@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
-    targetRevision: HEAD
+    targetRevision: world-argocd
     path: applications/world
 
   destination:
