@@ -22,3 +22,6 @@ Create a PAT for k8s to pull image
 
 Create a secret for k8s to pull image from ghcr
 - https://dev.to/asizikov/using-github-container-registry-with-kubernetes-38fb
+
+TEST:
+- test world update strategy digest in argocd image updater. should work for latest digest on master branch
