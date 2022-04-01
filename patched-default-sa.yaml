@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2022-03-31T06:10:47Z"
+  name: default
+  namespace: default
+  uid: 701cf95b-cee1-46ca-88e4-19ca8d7e0e8f
+
+secrets:
+  - name: default-token-xvpwd
+
+imagePullSecrets:
+  - name: dockerconfigjson-github-com

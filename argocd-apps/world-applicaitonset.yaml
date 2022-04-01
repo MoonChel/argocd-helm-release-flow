@@ -9,6 +9,7 @@ spec:
   generators:
     - list:
         elements:
+          # name is name for application, must be same for all elements
           - server: https://kubernetes.default.svc
             name: world
             branch: world-argocd
@@ -37,3 +38,7 @@ spec:
       destination:
         server: "{{ server }}"
         namespace: "{{ name }}-{{ branch }}"
+
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
