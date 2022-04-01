@@ -1,0 +1,16 @@
+replicaCount: 1
+
+app:
+  name: world
+
+repo:
+  branchToDeploy: master
+  path: applications/world
+
+image:
+  repository: ghcr.io/moonchel/argocd-helm-release-flow
+  pullPolicy: Always
+
+destination:
+  server: https://kubernetes.default.svc
+  namespace: default
