@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ServiceAccount
+
+metadata:
+  creationTimestamp: "2022-03-31T06:13:08Z"
+  name: default
+  namespace: argocd
+  uid: 87161683-2ffc-4c7f-a8d2-7244a12d2c80
+
+secrets:
+  - name: default-token-5vkl8
+
+imagePullSecrets:
+  - name: dockerconfigjson-github-com
