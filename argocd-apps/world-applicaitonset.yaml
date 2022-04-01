@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+
+metadata:
+  name: world
+  namespace: argocd
+
+spec:
+  generators:
+    - list:
+        elements:
+          - server: https://kubernetes.default.svc
+            name: world
+            branch: world-argocd
+          - server: https://kubernetes.default.svc
+            name: world
+            branch: master
+
+  template:
+    # argocd application specification
+
+    metadata:
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: "{{ name }}=ghcr.io/moonchel/argocd-helm-release-flow:{{ branch }}"
+        argocd-image-updater.argoproj.io/world.update-strategy: digest
+
+    spec:
+      project: "{{ name }}"
+
+      source:
+        repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
+        targetRevision: "{{ branch }}"
+        path: applications/world
+
+      destination:
+        server: "{{ server }}"
+        namespace: "{{ name }}-{{ branch }}"

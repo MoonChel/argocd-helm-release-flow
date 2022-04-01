@@ -9,7 +9,7 @@ Install argocd
 
 In other terminal
 - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-- open localhost:8080, username is admin
+- open localhost:8080, username is admin, password is RUtNuvK4AiDcxBhN
 
 Apply our first app
 - kubectl apply -n argocd -f applications-2/guestbook.yaml

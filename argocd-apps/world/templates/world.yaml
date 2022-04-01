@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: world
+  namespace: argocd
+  annotations:
+    # apply hash function on image tag and take first 10 chars
+    argocd-image-updater.argoproj.io/image-list: {{ .Values.app.name }}={{ .Values.image.repository }}:{{ .Values.repo.branchToDeploy }}
+    argocd-image-updater.argoproj.io/box.update-strategy: digest
+
+spec:
+  project: {{ .Values.app.name }}
+
+  source:
+    repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
+    targetRevision: {{ .Values.repo.branchToDeploy }}
+    path: {{ .Values.repo.path }}
+
+  destination:
+    server: {{ .Values.destination.server }}
+    namespace: "{{ .Values.destination.namespace }}-{{ .Values.repo.branchToDeploy }}"
