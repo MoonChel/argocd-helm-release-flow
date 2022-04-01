@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 
 metadata:
-  name: world
+  name: world-applicationset
   namespace: argocd
 
 spec:
@@ -20,12 +20,14 @@ spec:
     # argocd application specification
 
     metadata:
+      name: "{{ name }}-{{ branch }}"
+      namespace: argocd
       annotations:
         argocd-image-updater.argoproj.io/image-list: "{{ name }}=ghcr.io/moonchel/argocd-helm-release-flow:{{ branch }}"
-        argocd-image-updater.argoproj.io/world.update-strategy: digest
+        "argocd-image-updater.argoproj.io/{{ name }}.update-strategy": digest
 
     spec:
-      project: "{{ name }}"
+      project: default
 
       source:
         repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
