@@ -8,5 +8,6 @@ data:
     - name: GitHub
       prefix: ghcr.io
       api_url: https://ghcr.io
-      credentials: pullsecret:default/dockerconfigjson-github-com
+      credentials: pullsecret:argocd/dockerconfigjson-github-com
+      insecure: true
       default: true
