@@ -24,6 +24,7 @@ spec:
         argocd-image-updater.argoproj.io/image-list: "{{ name }}=ghcr.io/moonchel/argocd-helm-release-flow:{{ branch }}"
         "argocd-image-updater.argoproj.io/{{ name }}.update-strategy": digest
         argocd-image-updater.argoproj.io/write-back-method: git
+        argocd-image-updater.argoproj.io/myalias.force-update: "true"
 
     spec:
       project: default
