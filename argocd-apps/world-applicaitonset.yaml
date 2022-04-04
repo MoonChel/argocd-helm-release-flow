@@ -28,6 +28,7 @@ spec:
         "argocd-image-updater.argoproj.io/{{ name }}.update-strategy": digest
         argocd-image-updater.argoproj.io/write-back-method: git
 
+
     spec:
       project: default
 
