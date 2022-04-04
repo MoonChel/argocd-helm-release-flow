@@ -26,3 +26,4 @@ Create a secret for k8s to pull image from ghcr
 TEST:
 - test world update strategy digest in argocd image updater. should work for latest digest on master branch
 - one more test
+- one more test
