@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 
 metadata:
-  name: world-applicationset
+  name: marco-applicationset
   namespace: argocd
 
 spec:
@@ -11,10 +11,10 @@ spec:
         elements:
           # name is name for application, must be same for all elements
           - server: https://kubernetes.default.svc
-            name: world
-            branch: world-argocd
+            name: marco
+            branch: marco-argocd
           - server: https://kubernetes.default.svc
-            name: world
+            name: marco
             branch: master
 
   template:
@@ -26,6 +26,7 @@ spec:
       annotations:
         argocd-image-updater.argoproj.io/image-list: "{{ name }}=ghcr.io/moonchel/argocd-helm-release-flow:{{ branch }}"
         "argocd-image-updater.argoproj.io/{{ name }}.update-strategy": digest
+        argocd-image-updater.argoproj.io/write-back-method: git
 
     spec:
       project: default
@@ -33,7 +34,7 @@ spec:
       source:
         repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
         targetRevision: "{{ branch }}"
-        path: applications/world
+        path: applications/marco
 
       destination:
         server: "{{ server }}"
