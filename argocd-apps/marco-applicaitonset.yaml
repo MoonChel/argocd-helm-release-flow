@@ -13,9 +13,6 @@ spec:
           - server: https://kubernetes.default.svc
             name: marco
             branch: marco-argocd
-          - server: https://kubernetes.default.svc
-            name: marco
-            branch: master
 
   template:
     # argocd application specification
@@ -34,7 +31,7 @@ spec:
       source:
         repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
         targetRevision: "{{ branch }}"
-        path: applications/marco
+        path: applications/world
 
       destination:
         server: "{{ server }}"
