@@ -60,3 +60,12 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+{{- define "generateImageName" -}}
+{{- if hasPrefix "sha256:" ( .Values.image.tag | toString ) }}
+{{- printf "%v@%v" .Values.image.repository .Values.image.tag }}
+{{- else }}
+{{- printf "%v:%v" .Values.image.repository .Values.image.tag }}
+{{- end }}
+{{- end }}

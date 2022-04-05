@@ -11,7 +11,7 @@ metadata:
     argocd-image-updater.argoproj.io/git-branch: marco-argocd
     argocd-image-updater.argoproj.io/marco.helm.image-name: image.repository
     argocd-image-updater.argoproj.io/marco.helm.image-tag: image.tag
-    argocd-image-updater.argoproj.io/cicd-sample.helm.image-spec: image.repository:image.tag
+    argocd-image-updater.argoproj.io/marco.helm.image-spec: image.repository:image.tag
 
 spec:
   project: default
