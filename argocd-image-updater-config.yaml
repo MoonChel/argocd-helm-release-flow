@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: argocd-image-updater-config
 data:
+  log.level: debug
   registries.conf: |
     registries:
     - name: GitHub
@@ -14,4 +15,3 @@ data:
       prefix: docker.io
       api_url: https://registry.hub.docker.com
       default: true
-      insecure: true
