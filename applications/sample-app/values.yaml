@@ -1,4 +1,4 @@
 nginx:
   image:
-    name: nginx
+    name: docker.io/nginx
     tag: 1.14.2

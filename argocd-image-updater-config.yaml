@@ -14,4 +14,5 @@ data:
     - name: Docker Hub
       prefix: docker.io
       api_url: https://registry.hub.docker.com
+      credentials: pullsecret:argocd/dockerconfigjson-github-com
       default: true
