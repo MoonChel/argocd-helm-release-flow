@@ -8,6 +8,7 @@ metadata:
     argocd-image-updater.argoproj.io/marco.update-strategy: digest
     argocd-image-updater.argoproj.io/marco.force-update: "true"
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: marco-argocd
 
 spec:
   project: default
