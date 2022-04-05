@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: marco
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: marco=ghcr.io/moonchel/argocd-helm-release-flow:marco-argocd
+    argocd-image-updater.argoproj.io/marco.update-strategy: digest
+    argocd-image-updater.argoproj.io/marco.force-update: "true"
+    argocd-image-updater.argoproj.io/write-back-method: git
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/MoonChel/argocd-helm-release-flow.git
+    targetRevision: marco-argocd
+    path: applications/world
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
