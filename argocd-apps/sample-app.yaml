@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-app
+  namespace: miniargo-client-1
+  annotations:
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/image-list: nginx=nginx:1.x
+    argocd-image-updater.argoproj.io/nginx.helm.image-name: nginx.image.name
+    argocd-image-updater.argoproj.io/nginx.helm.image-tag: nginx.image.tag
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:image-updater-mini-1/git-creds
+spec:
+  destination:
+    namespace: sample-app-client-1
+    server: https://kubernetes.default.svc
+  project: sample-project
+  source:
+    path: sample-app/
+    repoURL: https://github.com/0m1xa/argocd-client1.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
