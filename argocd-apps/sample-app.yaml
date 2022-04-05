@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sample-app
-  namespace: miniargo-client-1
+  namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/image-list: nginx=nginx:1.x
@@ -13,7 +13,7 @@ spec:
   destination:
     namespace: sample-app-client-1
     server: https://kubernetes.default.svc
-  project: sample-project
+  project: default
   source:
     path: sample-app/
     repoURL: https://github.com/0m1xa/argocd-client1.git
