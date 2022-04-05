@@ -7,6 +7,8 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: nginx=docker.io/nginx:1.x
     argocd-image-updater.argoproj.io/nginx.helm.image-name: nginx.image.name
     argocd-image-updater.argoproj.io/nginx.helm.image-tag: nginx.image.tag
+    argocd-image-updater.argoproj.io/marco.force-update: "true"
+
 spec:
   project: default
 

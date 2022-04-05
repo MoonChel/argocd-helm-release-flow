@@ -4,9 +4,10 @@ metadata:
   name: marco
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: marco=ghcr.io/moonchel/argocd-helm-release-flow:master
+    argocd-image-updater.argoproj.io/image-list: marco=ghcr.io/moonchel/argocd-helm-release-flow:marco-argocd
     argocd-image-updater.argoproj.io/marco.update-strategy: digest
     argocd-image-updater.argoproj.io/marco.force-update: "true"
+    argocd-image-updater.argoproj.io/marco.platforms: linux/arm64,linux/amd64
 
 spec:
   project: default
