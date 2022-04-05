@@ -10,4 +10,8 @@ data:
       api_url: https://ghcr.io
       credentials: pullsecret:argocd/dockerconfigjson-github-com
       insecure: true
+    - name: Docker Hub
+      prefix: docker.io
+      api_url: https://registry.hub.docker.com
       default: true
+      insecure: true
