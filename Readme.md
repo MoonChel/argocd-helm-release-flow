@@ -3,16 +3,17 @@ Run minikube
 
 Install argocd
 - kubectl create namespace argocd
-- kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-- kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-- kubectl port-forward svc/argocd-server -n argocd 8080:443
+- kubens argocd
+- kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+- kubectl patch svc argocd-server -p '{"spec": {"type": "LoadBalancer"}}'
+- kubectl port-forward svc/argocd-server 8080:443
 
 In other terminal
-- kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-- open localhost:8080, username is admin, password is RUtNuvK4AiDcxBhN
+- kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+- open localhost:8080, username is admin, password is V831MFtGmGuGPSQr
 
 Apply our first app
-- kubectl apply -n argocd -f applications-2/guestbook.yaml
+- kubectl apply -f applications-2/guestbook.yaml
 
 Create workflow for build and push to ghcr
 - https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
